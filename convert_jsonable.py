@@ -3,12 +3,12 @@ from typing import List, Dict, Union
 
 def convert_to_jsonable_type(x):
     try:
-        return int(x)
+        y = float(x)
+        if int(y) == y:
+            return int(y)
+        return y
     except:
-        try:
-            return float(x)
-        except:
-            return str(x)
+        return str(x)
         
 def convert_jsonable(data: Union[Dict, List[Dict]]):
     if isinstance(data, list):
